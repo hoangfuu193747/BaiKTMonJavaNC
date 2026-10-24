@@ -1,0 +1,2 @@
+<footer class="footer"><span>KTX · Hệ thống quản lý ký túc xá</span></footer></main></div><script src="<c:url value='/assets/js/application.js'/>"></script><c:choose><c:when test="${sessionScope.authUser.admin}"><script src="<c:url value='/assets/js/admin.js'/>"></script></c:when><c:otherwise><script src="<c:url value='/assets/js/student.js'/>"></script></c:otherwise></c:choose></body></html>
+<%@ page pageEncoding="UTF-8" %>

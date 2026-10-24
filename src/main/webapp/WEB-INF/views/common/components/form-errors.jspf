@@ -1,0 +1,2 @@
+<%@ page pageEncoding="UTF-8" %>
+<c:if test="${not empty errors.global}"><div class="auth-message error" role="alert"><c:out value="${errors.global}"/></div></c:if>

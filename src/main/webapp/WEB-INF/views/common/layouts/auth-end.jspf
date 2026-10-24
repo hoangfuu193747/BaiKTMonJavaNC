@@ -1,0 +1,2 @@
+<%@ page pageEncoding="UTF-8" %>
+</div></section></main><script src="<c:url value='/assets/js/auth.js'/>" defer></script></body></html>

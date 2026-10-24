@@ -1,0 +1,6 @@
+/target/
+/.local/
+*.local.properties
+.env
+.env.*
+!.env.example

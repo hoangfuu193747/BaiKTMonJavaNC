@@ -1,0 +1,9 @@
+<%@ page pageEncoding="UTF-8" %>
+<div class="table-wrap portal-table"><table><thead><tr><th>Hóa đơn</th><c:if test="${adminView}"><th>Sinh viên</th></c:if><th>Tổng tiền</th><th>Đã đóng</th><th>Còn phải đóng</th><th>Hạn đóng</th><th>Trạng thái</th><th></th></tr></thead><tbody>
+<c:forEach items="${invoices}" var="i"><tr>
+  <td><strong>HD${i.maHoaDon}</strong><small class="portal-cell-note">${i.thang}/${i.nam} · <c:out value="${i.maPhong}"/></small></td>
+  <c:if test="${adminView}"><td><c:out value="${i.hoTen}"/><small class="portal-cell-note"><c:out value="${i.maSV}"/></small></td></c:if>
+  <td class="portal-currency"><c:out value="${i.tongTienText}"/></td><td class="portal-currency"><c:out value="${i.daDongText}"/></td><td class="portal-currency"><strong><c:out value="${i.conNoText}"/></strong></td><td><c:out value="${i.hanThanhToanText}"/></td>
+  <td><span class="tag ${i.trangThai == 'DA_THANH_TOAN' ? '' : 'amber'}"><c:out value="${statusLabels[i.trangThai]}"/></span></td><td><a class="btn btn-outline btn-sm" href="<c:url value='${routePrefix}/invoices'/>?id=${i.maHoaDon}">Xem</a></td>
+</tr></c:forEach><c:if test="${empty invoices}"><tr><td colspan="${adminView ? 8 : 7}" class="empty-cell">Chưa có hóa đơn.</td></tr></c:if>
+</tbody></table></div>

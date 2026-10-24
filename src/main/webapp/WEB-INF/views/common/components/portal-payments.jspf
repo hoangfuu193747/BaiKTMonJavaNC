@@ -1,0 +1,11 @@
+<%@ page pageEncoding="UTF-8" %>
+<div class="table-wrap portal-table"><table><thead><tr><th>Thanh toán</th><c:if test="${adminView}"><th>Sinh viên</th></c:if><th>Hóa đơn</th><th>Số tiền</th><th>Trạng thái</th><c:if test="${adminView}"><th>Thao tác</th></c:if></tr></thead><tbody>
+<c:forEach items="${payments}" var="t"><tr>
+  <td><strong>TT${t.maTT}</strong><small class="portal-cell-note"><c:out value="${statusLabels[t.phuongThuc]}"/></small><details class="portal-row-detail"><summary>Thông tin</summary><small><c:out value="${t.ngayTaoText}"/></small><c:if test="${not empty t.maGiaoDich}"><small><c:out value="${t.maGiaoDich}"/></small></c:if><c:if test="${not empty t.ngayXacNhan}"><small>Duyệt: <c:out value="${t.ngayXacNhanText}"/></small></c:if></details></td>
+  <c:if test="${adminView}"><td><c:out value="${t.hoTen}"/><small class="portal-cell-note"><c:out value="${t.maSV}"/></small></td></c:if>
+  <td>HD${t.maHoaDon}<small class="portal-cell-note">${t.thang}/${t.nam}</small></td><td class="portal-currency"><c:out value="${t.soTienText}"/></td>
+  <td><span class="tag ${t.trangThai == 'CHO_XAC_NHAN' ? 'amber' : (t.trangThai == 'TU_CHOI' ? 'red' : '')}"><c:out value="${statusLabels[t.trangThai]}"/></span></td>
+  <c:if test="${adminView}"><td><c:if test="${t.trangThai == 'CHO_XAC_NHAN'}"><form method="post" action="<c:url value='/admin/payments'/>" data-confirm="Xử lý yêu cầu thanh toán này?"><input type="hidden" name="csrfToken" value="<c:out value='${csrfToken}'/>"><input type="hidden" name="id" value="${t.maTT}"><div class="button-group"><button class="btn btn-primary btn-sm" name="action" value="confirm">Duyệt</button><button class="btn btn-danger btn-sm" name="action" value="reject">Từ chối</button></div></form></c:if></td></c:if>
+</tr></c:forEach>
+<c:if test="${empty payments}"><tr><td colspan="${adminView ? 6 : 5}" class="empty-cell">Chưa có thanh toán.</td></tr></c:if>
+</tbody></table></div>

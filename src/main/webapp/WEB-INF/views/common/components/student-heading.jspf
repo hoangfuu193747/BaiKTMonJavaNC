@@ -1,0 +1,2 @@
+<%@ page pageEncoding="UTF-8" %>
+<div class="page-heading"><div><c:if test="${not sessionScope.authUser.admin}"><p class="eyebrow">Cổng thông tin sinh viên</p></c:if><h1><c:out value="${pageTitle}"/></h1><c:if test="${not empty pageDescription}"><p><c:out value="${pageDescription}"/></p></c:if></div></div>

@@ -1,0 +1,2 @@
+<c:if test="${not empty flashSuccess}"><div class="auth-message success" role="status"><c:out value='${flashSuccess}'/></div></c:if><c:if test="${not empty flashError}"><div class="auth-message error" role="alert"><c:out value='${flashError}'/></div></c:if>
+<%@ page pageEncoding="UTF-8" %>

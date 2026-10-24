@@ -1,0 +1,5 @@
+# Copy outside the source tree; point KTX_DB_CONFIG to that file.
+# Environment variables KTX_DB_URL, KTX_DB_USER, KTX_DB_PASSWORD override these values.
+db.url=jdbc:sqlserver://localhost:1433;databaseName=QuanLyKyTucXa;encrypt=true;trustServerCertificate=true;loginTimeout=5;
+db.user=YOUR_SQL_LOGIN
+db.password=YOUR_SQL_PASSWORD
